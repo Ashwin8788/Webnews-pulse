@@ -3,7 +3,6 @@
 <head>
     <title>WebNews Pulse</title>
 
-    <!-- Auto refresh every 5 minutes -->
     <meta http-equiv="refresh" content="300">
 
     <style>
@@ -16,25 +15,6 @@
         h1 {
             text-align: center;
             color: #333;
-        }
-
-        .refresh-container {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .refresh-btn {
-            padding: 10px 15px;
-            font-size: 16px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .refresh-btn:hover {
-            background-color: #0056b3;
         }
 
         .news-card {
@@ -68,19 +48,31 @@
         .news-card a:hover {
             background: #0056b3;
         }
+
+        .refresh-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .refresh-btn {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .refresh-btn:hover {
+            background-color: #1e7e34;
+        }
     </style>
 </head>
 
 <body>
 
     <h1>📰 WebNews Pulse</h1>
-
-    <!-- 🔄 Refresh Button -->
-    <div class="refresh-container">
-        <button class="refresh-btn" onclick="location.reload()">
-            🔄 Refresh News
-        </button>
-    </div>
 
     {% if news %}
         {% for article in news %}
@@ -93,6 +85,13 @@
     {% else %}
         <p style="text-align:center;">No news available</p>
     {% endif %}
+
+    <!-- 🔄 Refresh Button at Bottom -->
+    <div class="refresh-container">
+        <button class="refresh-btn" onclick="window.location.href='/'">
+            🔄 Refresh News
+        </button>
+    </div>
 
 </body>
 </html>
