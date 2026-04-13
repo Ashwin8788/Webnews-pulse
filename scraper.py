@@ -3,7 +3,13 @@ from bs4 import BeautifulSoup
 
 def get_news():
     url = "https://timesofindia.indiatimes.com/rssfeedstopstories.cms"
-    response = requests.get(url)
+
+    headers = {
+        "User-Agent": "Mozilla/5.0"
+    }
+
+    response = requests.get(url, headers=headers)
+
     soup = BeautifulSoup(response.content, "xml")
 
     items = soup.find_all("item")
