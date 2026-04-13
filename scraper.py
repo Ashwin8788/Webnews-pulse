@@ -1,4 +1,5 @@
 import requests
+import time
 from bs4 import BeautifulSoup
 
 def get_news():
@@ -9,8 +10,7 @@ def get_news():
             "User-Agent": "Mozilla/5.0"
         }
 
-        response = requests.get(url, headers=headers, timeout=10)
-
+        response = requests.get(url, headers=headers, params={"t": time.time()})
         if response.status_code != 200:
             return []
 
